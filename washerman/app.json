@@ -1,0 +1,37 @@
+{
+  "expo": {
+    "name": "DhobiGhat Washerman",
+    "slug": "dhobighat-washerman",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "dhobighat-washerman",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.yourcompany.dhobighat.washerman"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#0A1628"
+      },
+      "package": "com.yourcompany.dhobighat.washerman",
+      "googleServicesFile": "./google-services.json"
+    },
+    "plugins": [
+      "expo-notifications",
+      "expo-secure-store",
+      [
+        "expo-font",
+        {
+          "fonts": []
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "YOUR_EAS_PROJECT_ID"
+      }
+    }
+  }
+}
