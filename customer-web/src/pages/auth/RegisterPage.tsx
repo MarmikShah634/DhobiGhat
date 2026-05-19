@@ -25,9 +25,8 @@ export function RegisterPage() {
     setLoading(true);
     try {
       const res = await customersApi.register({ phone: state.phone, name, address: address || undefined, temp_token: state.temp_token });
-      setCustomer(res.data);
-      const authRes = await import('@/api/auth').then((m) => m.authApi.verifyOtp(state.phone!, ''));
-      setTokens(authRes.data.access_token, authRes.data.refresh_token);
+      setTokens(res.data.access_token, res.data.refresh_token);
+      setCustomer(res.data.customer);
       navigate('/');
     } catch (e: unknown) {
       const err = e as { response?: { data?: { error?: { message?: string } } } };

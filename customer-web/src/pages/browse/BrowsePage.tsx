@@ -6,7 +6,6 @@ import { washermenApi, type Washerman } from '@/api/washermen';
 import { customersApi } from '@/api/customers';
 import { useAuthStore } from '@/store/authStore';
 import { Card } from '@/components/ui/Card';
-import { Input } from '@/components/ui/Input';
 import { PageSpinner } from '@/components/ui/Spinner';
 import { EmptyState } from '@/components/ui/EmptyState';
 import toast from 'react-hot-toast';

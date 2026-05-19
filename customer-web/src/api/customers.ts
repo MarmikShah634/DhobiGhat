@@ -3,7 +3,7 @@ import { api } from './client';
 export interface Customer { id: string; name: string; phone: string; address?: string; washerman_id?: string; washerman?: { id: string; name: string; business_name?: string; area?: string; unique_code: string; }; }
 
 export const customersApi = {
-  register: (data: { phone: string; name: string; address?: string; temp_token: string }) => api.post<Customer>('/customers/register', data),
+  register: (data: { phone: string; name: string; address?: string; temp_token: string }) => api.post<{ access_token: string; refresh_token: string; customer: Customer }>('/customers/register', data),
   getProfile: () => api.get<Customer>('/customers/me'),
   updateProfile: (data: Partial<{ name: string; address: string }>) => api.patch<Customer>('/customers/me', data),
   selectWasherman: (washerman_id: string) => api.post<Customer>('/customers/me/washerman', { washerman_id }),

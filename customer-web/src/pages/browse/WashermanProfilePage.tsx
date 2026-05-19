@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Star, MapPin, Heart, Phone } from 'lucide-react';
+import { ArrowLeft, Star, MapPin, Heart } from 'lucide-react';
 import { washermenApi, type Washerman } from '@/api/washermen';
 import { customersApi } from '@/api/customers';
 import { pricingApi, type PricingGrid } from '@/api/pricing';

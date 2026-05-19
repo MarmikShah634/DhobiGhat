@@ -31,10 +31,9 @@ export function RegisterPage() {
     setLoading(true);
     try {
       const res = await washermenApi.register({ ...data, phone: state.phone, temp_token: state.temp_token });
-      setWasherman(res.data);
-      setUniqueCode(res.data.unique_code);
-      const authRes = await import('@/api/auth').then((m) => m.authApi.verifyOtp(state.phone!, ''));
-      setTokens(authRes.data.access_token, authRes.data.refresh_token);
+      setTokens(res.data.access_token, res.data.refresh_token);
+      setWasherman(res.data.washerman);
+      setUniqueCode(res.data.washerman.unique_code);
     } catch (e: unknown) {
       const err = e as { response?: { data?: { error?: { message?: string } } } };
       toast.error(err?.response?.data?.error?.message ?? 'Registration failed.');
