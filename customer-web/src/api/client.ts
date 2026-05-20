@@ -1,6 +1,7 @@
 import axios, { type InternalAxiosRequestConfig } from 'axios';
 
-const BASE_URL = import.meta.env.VITE_API_URL ?? 'http://localhost:3000';
+const BASE_URL = import.meta.env.VITE_API_URL;
+if (!BASE_URL) throw new Error('VITE_API_URL is not set. Create a .env file with VITE_API_URL=<your-backend-url>');
 
 export const api = axios.create({ baseURL: BASE_URL, timeout: 15000 });
 

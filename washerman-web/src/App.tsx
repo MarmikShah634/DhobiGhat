@@ -4,6 +4,8 @@ import { useAuthStore } from './store/authStore';
 import { washermenApi } from './api/washermen';
 import { AppLayout } from './components/layout/AppLayout';
 import { PageSpinner } from './components/ui/Spinner';
+import { ErrorBoundary } from './components/ui/ErrorBoundary';
+import { NotFoundPage } from './pages/NotFoundPage';
 
 import { PhoneEntryPage } from './pages/auth/PhoneEntryPage';
 import { OTPPage } from './pages/auth/OTPPage';
@@ -58,11 +60,15 @@ const router = createBrowserRouter([
       ],
     }],
   },
-  { path: '*', element: <Navigate to="/" replace /> },
+  { path: '*', element: <NotFoundPage /> },
 ]);
 
 export default function App() {
   const { loadTokens } = useAuthStore();
   useEffect(() => { loadTokens(); }, [loadTokens]);
-  return <RouterProvider router={router} />;
+  return (
+    <ErrorBoundary>
+      <RouterProvider router={router} />
+    </ErrorBoundary>
+  );
 }

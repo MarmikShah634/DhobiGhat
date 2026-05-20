@@ -7,4 +7,19 @@ export default defineConfig({
   resolve: {
     alias: { '@': path.resolve(__dirname, './src') },
   },
+  build: {
+    sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+          motion: ['framer-motion'],
+          ui: ['lucide-react', 'react-hot-toast'],
+          forms: ['react-hook-form', '@hookform/resolvers', 'zod'],
+          http: ['axios'],
+          state: ['zustand'],
+        },
+      },
+    },
+  },
 });
